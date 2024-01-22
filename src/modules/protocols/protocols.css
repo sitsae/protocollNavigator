@@ -1,0 +1,16 @@
+.protocolList {
+  grid-area: protocols;
+  background-color: #E2F5FF;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+li:hover {
+    text-decoration: underline 2px;
+}

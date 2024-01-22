@@ -15,7 +15,7 @@ import barnJson from "../../json/barn_protokollark.json";
 import msJson from "../../json/ms_protokollark.json";
 import nevroJson from "../../json/nevro_protokollark.json";
 import tokJson from "../../json/tok_protokollark.json";
-
+import "./protocols.css"
 const loadData = (data: any) => JSON.parse(JSON.stringify(data));
 
 const abdomenData: AbdomenObj = loadData(abdomenJson);
