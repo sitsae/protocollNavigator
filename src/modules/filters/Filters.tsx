@@ -1,5 +1,6 @@
+import { filters } from "./filtersSlice";
+
 function Filters() {
-  const filters = ["Abdomen", "TØK", "MS", "Barn", "Nevro"];
   return (
     <>
       {filters.map((filter: string) => (

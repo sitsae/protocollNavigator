@@ -113,3 +113,7 @@ export interface Nevro {
   tilknyttetEHandbok: string;
   tilknyttetInkallingsbrev: string;
 }
+
+// redux types
+export type State = [];
+export type Action = { name: string; payload?: any };

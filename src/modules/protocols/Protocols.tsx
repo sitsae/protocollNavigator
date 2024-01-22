@@ -16,18 +16,13 @@ import msJson from "../../json/ms_protokollark.json";
 import nevroJson from "../../json/nevro_protokollark.json";
 import tokJson from "../../json/tok_protokollark.json";
 
-// loads data
-const loadAbdomenData: any = () => JSON.parse(JSON.stringify(abdomenJson));
-const loadBarnData: any = () => JSON.parse(JSON.stringify(barnJson));
-const loadMsData: any = () => JSON.parse(JSON.stringify(msJson));
-const loadNevroData: any = () => JSON.parse(JSON.stringify(nevroJson));
-const loadTokData: any = () => JSON.parse(JSON.stringify(tokJson));
+const loadData = (data: any) => JSON.parse(JSON.stringify(data));
 
-const abdomenData: AbdomenObj = loadAbdomenData();
-const barnData: { barn: Barn } = loadBarnData();
-const msData: { ms: Ms } = loadMsData();
-const nevroData: { nevro: Nevro } = loadNevroData();
-const tokData: { tok: Tok } = loadTokData();
+const abdomenData: AbdomenObj = loadData(abdomenJson);
+const barnData: { barn: Barn } = loadData(barnJson);
+const msData: { ms: Ms } = loadData(msJson);
+const nevroData: { nevro: Nevro } = loadData(nevroJson);
+const tokData: { tok: Tok } = loadData(tokJson);
 console.log(abdomenData);
 // importer ProtocolSlice
 // skal bruke protocolSlice.state som data:
