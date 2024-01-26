@@ -116,4 +116,4 @@ export interface Nevro {
 
 // redux types
 export type State = [];
-export type Action = { name: string; payload?: any };
+export interface Action { payload: any; type: string; };
