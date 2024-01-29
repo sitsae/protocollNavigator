@@ -5,15 +5,15 @@ import msJson from "../../json/ms_protokollark.json";
 import nevroJson from "../../json/nevro_protokollark.json";
 import tokJson from "../../json/tok_protokollark.json";
 import { setChosenProtocol } from "./protocolSlice";
-import {
-  Abdomen,
-  AbdomenObj,
-  Barn,
-  Ms,
-  Nevro,
-  Tok,
-  Protocol,
-} from "../../types";
+// import {
+//   Abdomen,
+//   AbdomenObj,
+//   Barn,
+//   Ms,
+//   Nevro,
+//   Tok,
+//   Protocol,
+// } from "../../types";
 import "./protocols.css";
 import { useState } from "react";
 const loadData = (data: any) => JSON.parse(JSON.stringify(data));
