@@ -1,11 +1,11 @@
-import { addFilter, removeFilter, selectFilter, filters } from './filtersSlice';
+import { addFilter, removeFilter, filters } from './filtersSlice';
 import { useSelector, useDispatch } from "react-redux";
 import store from "../../app/store";
 import "./filters.css"
 
 function Filters() {
   let state = store.getState()
-  const setFilter = useSelector(selectFilter);
+  const setFilter = useSelector((state: any) => state.filters);
   const dispatch = useDispatch()
 
   const toggleFilters = (selectedFilter: string) => {

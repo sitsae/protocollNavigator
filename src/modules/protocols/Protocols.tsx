@@ -1,74 +1,94 @@
-import {
-  Nevro,
-  NevroObj,
-  Tok,
-  TokObj,
-  Barn,
-  BarnObj,
-  Abdomen,
-  AbdomenObj,
-  Ms,
-  MsObj,
-} from "../../types";
+import { useSelector, useDispatch } from "react-redux";
 import abdomenJson from "../../json/abdomen_protokollark.json";
 import barnJson from "../../json/barn_protokollark.json";
 import msJson from "../../json/ms_protokollark.json";
 import nevroJson from "../../json/nevro_protokollark.json";
 import tokJson from "../../json/tok_protokollark.json";
+import { setChosenProtocol } from "./protocolSlice";
+import {
+  Abdomen,
+  AbdomenObj,
+  Barn,
+  Ms,
+  Nevro,
+  Tok,
+  Protocol,
+} from "../../types";
 import "./protocols.css";
-import store from "../../app/store";
-import { useEffect } from "react";
+import { useState } from "react";
 const loadData = (data: any) => JSON.parse(JSON.stringify(data));
 
-const abdomenData: AbdomenObj = loadData(abdomenJson);
-const barnData: { barn: Barn } = loadData(barnJson);
-const msData: { ms: Ms } = loadData(msJson);
-const nevroData: { nevro: Nevro } = loadData(nevroJson);
-const tokData: { tok: Tok } = loadData(tokJson);
+const abdomenData = loadData(abdomenJson).abdomen;
+const barnData = loadData(barnJson).barn;
+const msData = loadData(msJson).ms;
+const nevroData = loadData(nevroJson).nevro;
+const tokData = loadData(tokJson).tok;
 
 // importer ProtocolSlice
 // skal bruke protocolSlice.state som data:
 const setProtocols = (filters: string[]) => {
-  const dataList = [];
-  filters.map((filter) => {
+  let dataList: any[] = [];
+  filters.forEach((filter) => {
     switch (filter) {
       case "Abdomen":
-        return dataList.push(abdomenData);
+        dataList = [...dataList, ...abdomenData];
+        return;
       case "TØK":
-        return dataList.push(tokData);
+        dataList = [...dataList, ...tokData];
+        return;
       case "MS":
-        return dataList.push(msData);
+        dataList = [...dataList, ...msData];
+        return;
       case "Barn":
-        return dataList.push(barnData);
+        dataList = [...dataList, ...barnData];
+        return;
       case "Nevro":
-        return dataList.push(nevroData);
+        dataList = [...dataList, ...nevroData];
+        return;
+      default: {
+        return dataList;
+      }
     }
   });
+  return dataList;
 };
 
 function Protocols() {
-  let filteredProtocols:
-    | AbdomenObj[][]
-    | TokObj[][]
-    | MsObj[][]
-    | BarnObj[][]
-    | NevroObj[][]
-    | void = [];
-  useEffect(() => {
-    filteredProtocols = setProtocols(store.getState().filters);
-  });
+  const dispatch = useDispatch();
+  const filterSelected = useSelector((state: any) => state.filters);
+  const [searchQuery, setSearchQuery] = useState("");
+  const data = setProtocols(filterSelected);
+  const chosenProtocol = useSelector((state: any) => state.chosenProtocol);
 
-  console.log(filteredProtocols);
-
+  console.log(chosenProtocol);
+  console.log(data);
   return (
-    <ul className="protocolList">
-      {abdomenData.abdomen.map((prot: Abdomen) => (
-        <li>
-          <a>{prot.protokoll}</a>
-        </li>
-      ))}
-    </ul>
+    <>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <ul className="protocolList">
+        {data
+          .filter((item) => {
+            if (searchQuery.trim() === "") return true;
+            return item.protokoll
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase());
+          })
+          .map((prot) => (
+            <li>
+              <button
+                className="protocol-link"
+                onClick={() => dispatch(setChosenProtocol(prot))}
+              >
+                {prot.protokoll}
+              </button>
+            </li>
+          ))}
+      </ul>
+    </>
   );
 }
-
 export default Protocols;

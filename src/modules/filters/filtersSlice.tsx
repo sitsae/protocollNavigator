@@ -28,7 +28,7 @@ const options = {
     removeFilter: removeFilterReducer,
   },
 };
-export const selectFilter = (state: any) => state.filters.value;
+
 export const filtersSlice = createSlice(options);
 console.log(filtersSlice);
 
