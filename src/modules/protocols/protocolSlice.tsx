@@ -3,6 +3,7 @@ import { Action, Protocol } from "../../types";
 
 const initialState: Protocol | {} = {};
 
+
 const setChosenProtocolReducer: CaseReducer<any, Action> = (
   state = initialState,
   action: Action
