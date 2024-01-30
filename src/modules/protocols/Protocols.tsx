@@ -61,11 +61,11 @@ function Protocols() {
   const chosenProtocol = useSelector((state: any) => state.chosenProtocol);
 
   console.log(chosenProtocol);
-  console.log(data);
   return (
     <>
       <input
         type="text"
+        placeholder="Søk"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
