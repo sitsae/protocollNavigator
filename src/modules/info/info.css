@@ -1,0 +1,19 @@
+.protocoll {
+  grid-area: protocoll;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.protocol-element {
+  margin-bottom: 20px;
+}
+
+.protocol-element h3 {
+  text-decoration: 2px underline;
+}
+
+ol li {
+  margin: 40px ;
+}

@@ -113,3 +113,11 @@ export interface Nevro {
   tilknyttetEHandbok: string;
   tilknyttetInkallingsbrev: string;
 }
+
+export interface Action {
+  payload: any;
+  type: string;
+}
+export type Protocol = Abdomen | Nevro | Barn | Ms | Tok;
+// redux types
+export type State = [];

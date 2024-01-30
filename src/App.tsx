@@ -5,12 +5,14 @@ import Info from "./modules/info/Info"
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Filters />
       <Protocols />
       <Info/>
-    </>
+    </div>
   );
 }
+
+
 
 export default App;

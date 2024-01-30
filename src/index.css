@@ -5,5 +5,6 @@
 }
 
 body {
-  
+  background: linear-gradient(#C4CADD 10%, #b88e9475 60%, #ad505000 95%);
+  height: 100vh;
 }

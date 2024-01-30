@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: inherit;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90b7e7;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6e88c6;
+}
+.container {
+  display: grid;
+  max-width: 700px;
+  margin: 10vh auto;
+  background-color: #7dcaf5;
+  padding: 30px 10px 10px 10px;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.265) -6px 6px 13px,
+    rgba(255, 255, 255, 0.493) 6px -6px 13px;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    "filters filters search"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols"
+    "protocoll protocoll protocols";
+}
